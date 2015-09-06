@@ -2,6 +2,6 @@
 //Config
 require_once 'config.php';
 
-//teste
+//testee
 ?>
 
