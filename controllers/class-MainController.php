@@ -1,5 +1,7 @@
 <?php
 
+require_once ABSPATH."/controllers/class-UserLogin.php";
+
 /**
  * MainController - Todos os controllers deverão extender dessa classe
  * 
@@ -64,7 +66,7 @@ class MainController extends UserLogin{
         $this->db = new TutsupDB();
         
         //Phpass
-        $this->phppass = new PasswordHash(8, false);
+//        $this->phppass = new PasswordHash(8, false);
         
         //Paâmetros
         $this->parametro = $parametros;
@@ -91,7 +93,7 @@ class MainController extends UserLogin{
         $model_name = strtolower($model_name);
         
         //Inclui o arquivo
-        $model_path = ABSPATH."/models/".$model_name.".php";
+        $model_path = ABSPATH."/models/".$model_name.".php";                
         
         //Verifica se o arquivo existe
         if(file_exists($model_path)){

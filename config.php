@@ -10,10 +10,10 @@ define("ABSPATH", dirname(__FILE__));
 define("UP_ABSPATH", ABSPATH."/views/_uploads");
 
 //URL da home
-define("HOME_URI", "http://localhost:8080/Cursos/crud");
+define("HOME_URI", "http://localhost:8080/pjnoticias/");
 
 //Nome do host da base de dados
-define("HOSTNAME", "localhost:8080");
+define("HOSTNAME", "localhost");
 
 //Nome do DB
 define("DB_NAME", "tutsup");
@@ -28,7 +28,7 @@ define("DB_PASSWORD", "");
 define("DB_CHARSET", "utf8");
 
 //Caso esteja desenvolvendo
-define("DEBUG", true);
+define("DEBUG", TRUE);
 
 require_once ABSPATH.'/loader.php';
 ?>

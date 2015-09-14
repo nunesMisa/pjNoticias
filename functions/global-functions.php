@@ -12,7 +12,7 @@
 
 function chk_array($array, $key){
     //Verifica se a chave existe no array
-    if(isset($array[$key]) && !empty($arry[$key])){
+    if(isset($array[$key]) && !empty($array[$key])){
         //Retorno o valor da chave
         return $array[$key];
     }
@@ -27,7 +27,7 @@ function chk_array($array, $key){
  * Ver: http://php.net/manual/pt_BR/function.autoload.php.
  * Nossas classes estão na pasta classes/.
  * O nome do arquivo deverá ser class-NomeDaClasse.php.
- * Por exemplo: ara a classe TutsupMVC, o arquivo vai chmar class-Tutsup.php 
+ * Por exemplo: para a classe TutsupMVC, o arquivo vai chmar class-Tutsup.php 
  */
 function __autoload($class_name){
     $file = ABSPATH."/classes/class-".$class_name.".php";

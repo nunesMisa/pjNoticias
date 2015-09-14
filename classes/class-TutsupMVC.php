@@ -77,7 +77,7 @@ class TutsupMVC{
         //Se o arquivo do controlador não existir, não faremos nada
         if(!file_exists(ABSPATH."/controllers/".$this->controlador.".php")){
             //Página não encontrada
-//            require_once ABSPATH.$this->not_found;
+            require_once ABSPATH.$this->not_found;
             
             return;
         } 
@@ -98,15 +98,18 @@ class TutsupMVC{
             return;
         }
         
+//        die("aaa");
+//        die("$this->controlador = new $this->controlador($this->parametros);");
+        
         //Cria o objeto da classe do controlador e envia os parâmetros
-        $this->controlador = new $this->controlador($this->parametros);
+        $this->controlador = new ExemploController();// $this->controlador($this->parametros);
         
         //Se o método indicado existir, executa o método e envia os parâmetros
         if(method_exists($this->controlador, $this->acao)){
             $this->controlador->{$this->acao}($this->parametros);
             
             return;
-        }
+        }    
         
         //Sem ação, chamamos o método index
         if(!$this->acao && method_exists($this->controlador, "index")){
@@ -144,8 +147,8 @@ class TutsupMVC{
             $path = explode("/", $path);
             
             //Configura as propriedades
-            $this->controlador = chk_array($path, 0);
-            $this->controlador = "-controller";
+            $this->controlador  = chk_array($path, 0);
+            $this->controlador .= "-controller";
             $this->acao = chk_array($path, 1);
             
             //Configura os parâmetros 
@@ -154,17 +157,15 @@ class TutsupMVC{
                 unset($path[1]);
                 
                 //Os parâmetros sempre virão após a ação
-                $this->parametros = array_values($path);
-                
-                //DEBUG
-                //
-//                echo $this->controlador."<br>";
-//                echo $this->acao."<br>";
-//                echo "<pre>";
-//                print_r($this->parametros);
-//                echo "</pre>";
-//                die("");
+                $this->parametros = array_values($path);               
             }
+            //DEBUG
+//            echo $this->controlador."<br>";
+//            echo $this->acao."<br>";
+//            echo "<pre>";
+//            print_r($this->parametros);
+//            echo "</pre>";
+//            die("");
         }
     }
 }   

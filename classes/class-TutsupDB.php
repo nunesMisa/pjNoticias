@@ -56,9 +56,11 @@ class TutsupDB {
      */
     final protected function connect() {
         /* Os detalhes da nossa conexão PDO */
-        $pdo_details = "mysql:host={$this->host}";
-        $pdo_details .= "dbname={$this->db_name}";
+        $pdo_details = "mysql:host={$this->host};";
+        $pdo_details .= "dbname={$this->db_name};";
         $pdo_details .= "charset={$this->charset}";
+        
+//        die($pdo_details);
 
         //Tenta conectar
         try {

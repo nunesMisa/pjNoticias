@@ -10,13 +10,13 @@ if(!defined("ABSPATH")){
 session_start();
 
 //Verifica o modo para debugar
-if(!defined("DEBUB") || DEBUG == FALSE){
+if(!defined("DEBUG") || DEBUG == FALSE){
     //Esconde todos os erros
     error_reporting(0);
     ini_set("display_errors", 0);
 }else{
     //Mostra todos os erros
-    error_reporting(E_ALL);
+    error_reporting(E_ERROR | E_WARNING | E_PARSE);
     ini_set("display_errors", 1);
 }
 
